@@ -11,4 +11,13 @@ body {
 	float:left;
 	min-width:240px;
 }
+.itemTemplateWrapper  p {
+	margin:0;
+}
+.itemTemplateWrapper  p span {
+	display:block;
+}
+.itemTemplateWrapper  p span.name {
+	font-weight:bold;
+}
 
