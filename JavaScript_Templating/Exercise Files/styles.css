@@ -5,7 +5,7 @@ body {
 .itemTemplateWrapper {
 	border:1px solid gray;
 	padding:5pt;
-	margin-top:10px;
+	margin:10px;
 	width:auto;
 	display:block;
 	float:left;
