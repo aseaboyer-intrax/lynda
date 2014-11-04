@@ -12,7 +12,7 @@
 				url: 'list.json'
 			}).done(function( data ) {
 				console.log( "second success" );
-				console.log( data );
+				loadData( data.list );
 			})
 			.fail(function() {
 				console.log( "error" );
