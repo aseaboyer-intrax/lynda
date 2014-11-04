@@ -1,12 +1,14 @@
 body {
-	font-size: 18pt;
+	font-family:sans-serif;
 }
 
 .itemTemplateWrapper {
-	border: 1px solid gray;
-	padding: 5pt;
-	margin-top: 10px;
-	width: auto;
-	display: block;
+	border:1px solid gray;
+	padding:5pt;
+	margin-top:10px;
+	width:auto;
+	display:block;
+	float:left;
+	min-width:240px;
 }
 
