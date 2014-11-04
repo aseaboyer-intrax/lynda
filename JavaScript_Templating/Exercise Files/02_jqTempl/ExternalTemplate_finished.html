@@ -9,11 +9,10 @@
          $("document").ready(function() {
 			$.ajax({
 				dataType: "json",
-				url: 'list.json',
-				success: success
-			}).done(function() {
+				url: 'list.json'
+			}).done(function( data ) {
 				console.log( "second success" );
-				console.log( success );
+				console.log( data );
 			})
 			.fail(function() {
 				console.log( "error" );
