@@ -12,7 +12,7 @@
 				url: 'list.json'
 			}).done(function( data ) {
 				console.log( "second success" );
-				loadData( data.list );
+				loadData( data.list, { paged:true, pageNo: 1, elemPerPage: 2 } );
 			})
 			.fail(function() {
 				console.log( "error" );
@@ -25,8 +25,8 @@
                return value.replace(/([a-z])([A-Z])/g, "$1 $2");
             });
 			
-			function loadData ( jsonList ) { // load the template from the external file
-				$("#container").loadTemplate("template.html", jsonList );
+			function loadData ( jsonList, options ) { // load the template from the external file
+				$("#container").loadTemplate("template.html", jsonList, options );
 			}
          });
         </script>
