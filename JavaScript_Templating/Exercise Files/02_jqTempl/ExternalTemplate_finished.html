@@ -18,14 +18,11 @@
 				dataType: "json",
 				url: 'list.json'
 			}).done(function( data ) {
-				console.log( "second success" );
+				templateData = data.list;
 				loadData( data.list, 1 );
 			})
 			.fail(function() {
-				console.log( "error" );
-			})
-			.always(function() {
-				console.log( "complete" );
+				console.log( "error loading json" );
 			});
             
 			$.addTemplateFormatter("UpperSpace", function(value, options) {
