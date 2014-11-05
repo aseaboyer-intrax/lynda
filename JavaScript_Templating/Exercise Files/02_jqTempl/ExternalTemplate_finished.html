@@ -8,6 +8,10 @@
         <script type="text/javascript">
          var curPage = 1;
          var templateData = null;
+		 function loadData ( jsonList, options ) { // load the template from the external file
+			$("#container").loadTemplate("template.html", jsonList, options );
+		 }
+		
          $("document").ready(function() {
 			$.ajax({
 				dataType: "json",
@@ -30,9 +34,16 @@
                  return "<a href='mailto:" + value + "'>" + value + "</a>";
              });
 			
-			function loadData ( jsonList, options ) { // load the template from the external file
-				$("#container").loadTemplate("template.html", jsonList, options );
-			}
+			document.querySelector("#prevPage").addEventListener("click", function (evt) {
+				if (curPage > 1) {
+					renderTemplates(templateData, --curPage);
+				}
+			});
+			document.querySelector("#nextPage").addEventListener("click", function (evt) {
+				if (curPage < 4) {
+					renderTemplates(templateData, ++curPage);
+				}
+			});
          });
         </script>
     </head>
@@ -41,5 +52,7 @@
         <h3>This example loads an external template from an HTML file</h3>
         <!-- This is the container where the templates will be instantiated -->
         <div id="container"></div>
+        <button id="prevPage">Previous</button>
+        <button id="nextPage">Next</button>
     </body>
 </html>
