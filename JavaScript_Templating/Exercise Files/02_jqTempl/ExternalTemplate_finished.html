@@ -8,7 +8,8 @@
         <script type="text/javascript">
          var curPage = 1;
          var templateData = null;
-		 function loadData ( jsonList, options ) { // load the template from the external file
+		 function loadData ( jsonList, page ) { // load the template from the external file
+			var options = { paged:true, pageNo: page, elemPerPage: 2 };
 			$("#container").loadTemplate("template.html", jsonList, options );
 		 }
 		
@@ -18,7 +19,7 @@
 				url: 'list.json'
 			}).done(function( data ) {
 				console.log( "second success" );
-				loadData( data.list, { paged:true, pageNo: 1, elemPerPage: 2 } );
+				loadData( data.list, 1 );
 			})
 			.fail(function() {
 				console.log( "error" );
@@ -36,12 +37,12 @@
 			
 			document.querySelector("#prevPage").addEventListener("click", function (evt) {
 				if (curPage > 1) {
-					renderTemplates(templateData, --curPage);
+					loadData(templateData, --curPage);
 				}
 			});
 			document.querySelector("#nextPage").addEventListener("click", function (evt) {
 				if (curPage < 4) {
-					renderTemplates(templateData, ++curPage);
+					loadData(templateData, ++curPage);
 				}
 			});
          });
