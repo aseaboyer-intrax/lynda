@@ -29,7 +29,7 @@
                return value.replace(/([a-z])([A-Z])/g, "$1 $2");
             });
              $.addTemplateFormatter("EmailLink", function(value, options) {
-                 return "mailto" + value;
+                 return "<a href='mailto:" + value + "'>" + value + "</a>";
              });
 			
 			document.querySelector("#prevPage").addEventListener("click", function (evt) {
